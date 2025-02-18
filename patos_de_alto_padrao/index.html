@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATOS DE ALTO PADRÃO</title>
+    <style>
+        /* Reseta margem */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+        
+        /* div com margin */
+        .section {
+            margin-top: 4px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #e1e1e1;
+            border-radius: 8px;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+			padding-top: 80px; /* Adapte ao tamanho do cabeçalho */
+        }
+
+        header {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         background-color: #333;
+         color: white;
+         text-align: center;
+         padding: 11px 0; /* Altura padrão */
+         transition: all 0.3s ease-in-out;
+         z-index: 1000;
+       }
+
+      
+
+
+        header h1 {
+		    font-family: 'Georgia';
+            font-size: 2.7rem;
+        }
+
+        /* Barra de navegação */
+        nav {
+		    position: fixed;
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
+			width: 100%;
+			/*position: relative;  Adicionando essa linha */
+            z-index: 999; /* Ajuste de z-index para garantir que ele fique acima de outros conteúdos */
+			transition: all 0.3s ease-in-out;
+        
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #4CAF50;
+            transition: background-color 0.3s;
+        }
+
+        /* Container principal */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+
+            padding: 20px;
+			
+			
+		  width: 70%;
+          margin: 0 auto; /* Centraliza horizontalmente */
+          
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 20px; /* Espaço entre os elementos */
+        }
+
+        /* conteúdo principal */
+        .main-content, .sidebar {
+            flex: 3;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+		
+		.main-content, .sidebar {
+           flex: 3; /* Ambos terão o mesmo tamanho */
+           background-color: white;
+           padding: 20px;
+           border-radius: 8px;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         }
+
+
+        .main-content h2 {
+            margin-bottom: 15px;
+            font-size: 2rem;
+			font-family: 'Georgia';
+        }
+		
+		
+        /* paragrafo */
+        .main-content p {
+            font-size:1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Galeria de imagens */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Vídeo incorporado */
+        .video-container {
+            margin-top: 50px;
+            text-align: center;
+			background-color: black;
+			border-radius: 7px;
+			color: white;
+			
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 800px;
+            border-radius: 8px;
+			border-radius: 5px;
+        }
+
+        /* sobre nos */
+		
+		.sobreNos {
+            flex: 3;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+		
+
+
+
+        /* tabela */
+		
+		.tableAlign{
+		   display: flex;
+           flex-direction: column;
+           align-items: center;
+           text-align: center;
+           margin-top: 20px;
+		   font-size:1.5rem;
+		}
+		
+		
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+			
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Estilos para o botão */
+		
+		
+		.faleConosco{
+		   display: flex;
+		   justify-content:center;
+		
+		}
+		
+        .button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+			font-size:1.5rem;
+			
+        }
+		
+		.button:active {
+          transform: scale(0.95);
+          background-color: #388E3C; /* Cor um pouco mais escura no clique */
+        }
+		
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            
+            bottom: 0;
+            width: 100%;
+			
+        }
+		
+		/* deixa mais suave */
+		html {
+            scroll-behavior: smooth;
+        }
+		
+
+		
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+
+            }
+
+            .sidebar {
+                margin-top: 20px;
+                width: 100%;
+            }
+
+            .main-content {
+                width: 100%;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+    </head>
+<body>
+
+
+
+    <header>
+        <h1>PATOS DE ALTO PADRÃO 🦆✨</h1>
+    </header>
+
+    <nav>
+	    
+        <a href="#clientes">Clientes</a>
+        <a href="#problemas">Problemas comuns</a>
+        <a href="#tutores">Tutores</a>
+		<a href="#sobreNos">Sobre nós</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="container">
+    
+     <!-- Exemplo de div com padding e margin -->
+        
+        <!-- Seção de conteúdo principal -->
+        <div class="main-content" id="clientes">
+            <h1>🦆 O Mundo Luxuoso dos Patos Nobres</h1>
+            </br><p>Bem-vindo ao reino dos patos de alto padrão! Aqui, cada pato vive uma vida de conforto absoluto, com lagos cristalinos, comida gourmet e cuidados de primeira classe. Nossos patos não apenas nadam – eles desfilam em águas tratadas, recebendo alimentação balanceada com os melhores grãos e petiscos premium.</p>
+            </br><p>Vivendo em belos jardins, rodeados por fontes elegantes e áreas de descanso sombreadas, nossos patos têm tudo o que desejam. Eles não apenas nadam – fazem isso em lagos particulares com temperatura controlada. Eles não apenas comem – saboreiam refeições preparadas com ingredientes selecionados.</p>
+            </br><p>Cada pena brilha sob o sol, pois recebem tratamentos especiais com óleos naturais que garantem uma aparência impecável. Além disso, seu bem-estar é prioridade: veterinários especializados garantem que cada pato esteja saudável, feliz e pronto para curtir sua vida luxuosa.</p>
+			</br><p>Aqui, ser um pato é sinônimo de viver no auge do conforto e da riqueza! 🦆💰✨</p>
+			
+            <!-- Galeria de imagens -->
+            <div class="image-gallery">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkgTHVTrqXGZOP001-1wx-bWU3HM_QkVu_WdPGrNlTwaufi0_aaW5-ojQ&s=10/300x200?text=Imagem+1" alt="Imagem 1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtMW_2Wm4ABxe3dYv7y6KfgW4s7Dxbr1lQAQ&usqp=CAU/300x200?text=Imagem+2" alt="Imagem 2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO_S99Q_o_2KlRcj6qzLqaZtGwA9FT27cSDw&usqp=CAU/300x200?text=Imagem+3" alt="Imagem 3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVgnmhahgrbUxD19ruIXixqGs0Tlklq99Qpg&usqp=CAU/300x200?text=Imagem+4" alt="Imagem 4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6HntM04QJpWJifhoyRSx0F7vmRITpOGGxTw&usqp=CAU/300x200?text=Imagem+5" alt="Imagem 5">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiAVAZXTnRfY2fecHxntOzcvtt8qF0CF7tA&usqp=CAU/300x200?text=Imagem+6" alt="Imagem 6">
+            </div>
+
+            <!-- Vídeo incorporado -->
+            <div class="video-container" id="problemas">
+			    </br></br>
+                <h2>Problemas comuns que você pode ter ao tentar pegar o seu pato!</h2>
+                <iframe src="https://www.youtube.com/embed/RhtiDYLbfF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </br></br></br>
+            </div>
+            
+             <!-- Exemplo de uma tabela -->
+			 
+	    <div class="tableAlign">
+		<h2>Tutores Felizes</h2>
+        <table id="tutores">
+
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th> Quantidade de Patos</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Maria</td>
+                    <td>30</td>
+                    <td>São Paulo</td>
+                </tr>
+                <tr>
+                    <td>João</td>
+                    <td>25</td>
+                    <td>Rio de Janeiro</td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>22</td>
+                    <td>Paraná</td>
+                </tr>
+				</tr>
+                <tr>
+                    <td>Carlos</td>
+                    <td>32</td>
+                    <td>São Paulo</td>
+                </tr>
+				</tr>
+                <tr>
+                    <td>Juliana</td>
+                    <td>72</td>
+                    <td>Paraná</td>
+                </tr>
+				</tr>
+                <tr>
+                    <td>Ana</td>
+                    <td>43</td>
+                    <td>Recife</td>
+                </tr>
+				</tr>
+                <tr>
+                    <td>Luis</td>
+                    <td>26</td>
+                    <td>Rio de Janeiro</td>
+                </tr>
+            </tbody>
+        </table>
+		</div>
+
+        <!-- Exemplo de botão com padding -->
+        
+		
+		
+		
+		<div class="sidebar" id="sobreNos">
+        <h1>Sobre nós</h1>
+        </br><p>Na Patos de Alto Padrão, acreditamos que cada pato merece uma vida de luxo e conforto. Fundada com a missão de oferecer um estilo de vida sofisticado para essas magníficas aves, nossa empresa se destaca por proporcionar serviços exclusivos e personalizados para tutores exigentes que desejam o melhor para seus patos.</p>
+        </br><p>Com uma equipe apaixonada e experiente, garantimos alimentação premium, lagos cristalinos, acomodações de alto nível e cuidados veterinários especializados. Nosso compromisso vai além do básico – buscamos elevar o padrão de vida dos patos, proporcionando experiências únicas e ambientes planejados para seu bem-estar e felicidade.</p>
+		</br><p>Se você quer oferecer uma vida de realeza para seu pato, entre em contato e descubra como podemos transformar o dia a dia do seu companheiro em um verdadeiro paraíso.</p>
+		</br><p>💎 Patos de Alto Padrão – Porque elegância também se mede em penas. 🦆✨</p>
+	   </div>
+	   
+	   <div class="faleConosco" id="contato">
+	   <audio id="audio" src="honk.mp3"></audio>
+	   <button class="button" onclick="playQuack()">Fale Conosco🦆</button>
+	   </div>
+       
+	   <script>
+	     function playQuack(){
+		   var sound = document.getElementById('audio');
+		   sound.play();
+		 }
+	   </script>
+		
+    </div>
+	
+            
+   </div>
+
+
+    <footer id="contato">  <!-- o contato é um link ancora -->
+        <p>&copy; 2025 Daniel Dallagnol 🦆 - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
